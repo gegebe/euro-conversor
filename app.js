@@ -7,14 +7,25 @@ import {
 createApp({
   setup() {
     const amount = ref("");
+    const dollarValue = 1.0688534;
+    const yenValue = 161.52519;
 
     const convertToDollars = computed(() => {
-      return amount.value; // TODO: Apartado 1. Modifica este return para realizar la conversión de euros a dolares
+      return +amount.value * dollarValue;
     });
+
+    const convertToYen = computed(() => {
+      return +amount.value * yenValue;
+    }
+
+    )
 
     return {
       amount,
+      dollarValue,
+      yenValue,
       convertToDollars,
+      convertToYen
     };
   },
 }).mount("#app");
